@@ -6,6 +6,9 @@ $( document ).ready(function() {
     $('#home-box').addClass('modal-hide')
     $('#home-overlay').addClass('modal-hide');
 
+    const body = document.querySelector('body');
+    body.classList.remove('body-home--state');
+
   });
 
   /*Slider*/
@@ -110,12 +113,6 @@ $( document ).ready(function() {
   modalBox = $('#modal-box'),
   modalOverlay = $('#modal-overlay');
 
-
-  /*  $('#modal-toggle').click(function(){
-    modalBox.removeClass('modal-hide');
-    modalOverlay.removeClass('modal-hide');
-    return false;
-  });*/
   
   function hideModal(){
     modalBox.addClass('modal-hide');
@@ -156,7 +153,9 @@ $( document ).ready(function() {
 
 
   function forwardCar(){
-    $('.track-inc').click(function(){
+    $('.track-inc').click(function(e){
+    e.preventDefault();
+    
     car = $(this).closest('div.track-box').next().find("img");
     level = $(this).closest('div.track-box').next().find("div");
     widthPercent = Math.round(level.width() / level.parent().width() * 100);

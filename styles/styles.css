@@ -5,6 +5,10 @@ body{
   background: #7D818C;
 }
 
+.body-home--state{
+  overflow-x:hidden;
+}
+
 .header{
   background: #393C4B;
 }
@@ -68,7 +72,7 @@ h1{
 }
 
 .quiz-ans{
-  width:40%;
+  max-width:400px;
   margin: 0 auto;
 }
 
@@ -80,7 +84,7 @@ h1{
   color:#ffffff;
   text-align:center;
   font-size:24px;
-  padding: 20px 30px 0 30px;
+  padding: 20px 30px 15px 30px;
 }
 
 
@@ -112,7 +116,7 @@ h1{
 
 
 .btn-reveal{
-  padding: 5px 70px;
+  padding: 5px 50px;
   margin: 0 20px;
   background: #FF9200;
   border: 2px solid #FF9200;
@@ -172,29 +176,31 @@ h1{
 /*race track*/
 
 .track-sec{
-  width: 1170px;
+  width: 95vw;
   margin: 0 auto;
-  overflow: hidden;
+  display:flex;
+  justify-content: center;
+  margin:0 auto;
+  position:relative;
 }
 
 .track{
   width: 1080px;
-  margin: 0 auto;
   padding: 0;
-  float: left;
-
+  display:inline-block;
+   
 }
 
 .track-finish{
   background: #393C4B;
-  display: inline-block;
+  display: block;
   width: 90px;
-  height: 300px;
-  float: left;
+  height: 360px;
   text-align: center;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   color: #fff;
+  
 }
 
 .track-finish h1{
@@ -212,8 +218,10 @@ h1{
   display: inline-block;
   vertical-align: top;
   float: left;
-  height: 100px;
-
+  height: 120px;
+  display:flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 .track-box span{
   color: #FF9200;
@@ -246,7 +254,7 @@ h1{
   display: inline-block;
   vertical-align: top;
   float: left;
-  height: 100px;
+  height: 120px;
   position: relative;
 
 }
@@ -381,6 +389,7 @@ cursor: pointer;
 .modal-hide{
   visibility: hidden;
   opacity: 0;
+  pointer-events:none;
 }
 
 .modal-close-wrap{
@@ -414,20 +423,26 @@ cursor: pointer;
   left: 0;
   width:100%;
   background-color:rgba(0,0,0,0.5);
+  z-index:1000;
 
 }
 
 #winner-box{
   position: fixed;
-  width: 50%;
-  height: 50%;
-  top: 30%;
+  width: 50vw;
+  height: 60vh;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   background-color: #ffffff;
   padding: 30px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  z-index:1001;
+  
 }
 
 
@@ -439,7 +454,7 @@ cursor: pointer;
 
 
 .winner-trophy{
-  width:300px;
+  max-width:250px;
   height: auto;
   margin: 0 auto;
   display: block;
@@ -449,7 +464,7 @@ cursor: pointer;
   text-align: center;
   color:#FF9200;
   padding: 20px 0;
-  font-size:50px;
+  font-size:35px;
 }
 
 /*police*/
@@ -500,6 +515,8 @@ cursor: pointer;
   left: 0;
   width:100%;
   background-color:rgba(0,0,0,0.5);
+  z-index:1000;
+  overflow:hidden;
 }
 
 #home-box{
@@ -599,4 +616,67 @@ cursor: pointer;
 
 .track-hide{
   visibility: hidden;
+}
+
+/* Responsiveness */
+
+@media only screen and (max-width:1366px){
+  body{
+   /*  overflow-x:hidden; */
+  }
+
+}
+
+@media only screen and (max-width:768px){
+
+  .track{
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  #track-lane-one{
+    box-shadow: inset -20px 0px 1px 0px #EB3060;
+  }
+
+  #track-lane-two{
+    box-shadow: inset -20px 0px 1px 0px #82D77E;
+  }
+
+  #track-lane-three{
+    box-shadow: inset -20px 0px 1px 0px #80C9FF;
+  }
+
+   .track-finish{
+    display:none;
+  }
+
+  .track-sec{
+    display:block;
+    overflow-x: scroll;
+  }
+
+  .track-box p{
+    font-size:13px;
+  }
+
+  .quiz-slide{
+    height:280px !important;
+  }
+
+  .quiz-question{
+    font-size: 20px !important;
+  }
+
+  .ans-col-one li,
+  .ans-col-two li{
+    font-size:14px !important;
+  }
+
+  
+  #winner-box h1{
+    font-size:24px;
+    margin-top:15px;
+  }
 }
