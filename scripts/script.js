@@ -75,7 +75,8 @@ $( document ).ready(function() {
   });
 
 
-  $('#btnReveal').click(function(){
+  $('#btnReveal').click(function(e){
+    e.preventDefault();
     $('.correct').addClass('correct-highlight');
   });
 
